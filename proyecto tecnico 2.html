@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROYECTO DEL ÁREA TÉCNICA 2024-2025</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- ESTILOS GENERALES Y DE FONDO --- */
+        body {
+            font-family: 'Montserrat', sans-serif; /* Fuente moderna */
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Color de fondo suave por defecto */
+            color: #333; /* Color de texto general */
+            line-height: 1.6;
+            min-height: 100vh; /* Asegura que el body ocupe toda la altura */
+            display: flex; /* Para organizar el contenido verticalmente */
+            flex-direction: column;
+        }
+
+        /* Fondo de Imagen: Puedes reemplazar 'fondo-proyecto.jpg' con tu imagen */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('tu_imagen_de_fondo.jpg'); /* ¡CAMBIA ESTO! */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            opacity: 0.2; /* Ajusta la opacidad para que el texto sea legible */
+            z-index: -1; /* Envía la imagen detrás del contenido */
+        }
+
+        /* --- ESTILOS DEL ENCABEZADO PRINCIPAL --- */
+        header {
+            background-color: #117a65; /* Un verde más institucional */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: sticky; /* Hace que el encabezado se quede fijo al hacer scroll */
+            top: 0;
+            z-index: 1000; /* Asegura que esté por encima de otros elementos */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            /* Degradado de color para el título */
+            background: linear-gradient(90deg, #4facfe, #00f2fe, #4facfe); /* Degradado azul-cielo */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGradient 5s ease infinite alternate; /* Animación de degradado */
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+            color: #d1e8e2; /* Un blanco suave para el texto adicional */
+        }
+
+        /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN --- */
+        nav {
+            background-color: #1abc9c; /* Verde del menú */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative; /* Para el posicionamiento del submenú */
+        }
+
+        .menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Para que los ítems del menú estén en línea */
+            justify-content: center; /* Centra los ítems del menú */
+            flex-wrap: wrap; /* Permite que los ítems se envuelvan en pantallas pequeñas */
+        }
+
+        .menu > li {
+            position: relative; /* Esencial para el submenu */
+        }
+
+        .menu a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 15px 25px;
+            text-decoration: none;
+            transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
+            font-weight: bold;
+        }
+
+        .menu a:hover, .menu li:hover > a {
+            background-color: #16a085; /* Un verde ligeramente más oscuro al pasar el ratón */
+        }
+
+        /* Submenú */
+        .submenu {
+            display: none;
+            position: absolute;
+            background-color: #f1c40f; /* Amarillo vibrante */
+            min-width: 200px; /* Ancho mínimo del submenú */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1; /* Asegura que el submenú esté por encima de otros elementos */
+            border-top: 3px solid #e67e22; /* Borde superior naranja */
+        }
+
+        .submenu a {
+            color: white; /* Color de texto para los ítems del submenú */
+            padding: 12px 16px;
+            text-align: left;
+            transition: background-color 0.3s ease;
+        }
+
+        .submenu a:hover {
+            background-color: #e67e22; /* Naranja al pasar el ratón por el submenú */
+        }
+
+        .menu li:hover .submenu {
+            display: block; /* Muestra el submenú al pasar el ratón por el ítem principal */
+        }
+
+        /* --- ESTILOS DE LA SECCIÓN PRINCIPAL DE CONTENIDO --- */
+        main {
+            flex-grow: 1; /* Permite que la sección principal ocupe el espacio restante */
+            padding: 20px;
+            max-width: 1000px; /* Limita el ancho del contenido para mejor lectura */
+            margin: 20px auto; /* Centra el contenido */
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente para el contenido */
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        main h2 {
+            color: #117a65;
+            border-bottom: 2px solid #1abc9c;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .info-box {
+            background-color: #e8f5e9; /* Verde muy claro */
+            border-left: 5px solid #4caf50; /* Borde izquierdo verde */
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+
+        .info-box strong {
+            color: #2e7d32;
+        }
+
+        /* Estilos para imágenes dentro del contenido (si las necesitas) */
+        main img {
+            max-width: 100%; /* Las imágenes no se saldrán del contenedor */
+            height: auto;
+            display: block; /* Para centrar imágenes de bloque */
+            margin: 20px auto;
+            border: 3px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- ESTILOS DEL PIE DE PÁGINA --- */
+        footer {
+            background-color: #34495e; /* Azul oscuro */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto; /* Empuja el pie de página hacia abajo */
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- RESPONSIVIDAD BÁSICA --- */
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column; /* Apila los ítems del menú en pantallas pequeñas */
+                align-items: center;
+            }
+            .menu > li {
+                width: 100%; /* Cada ítem del menú ocupa todo el ancho */
+            }
+            .submenu {
+                position: static; /* El submenú aparece debajo del ítem principal */
+                width: 100%;
+                box-shadow: none;
+                border-top: none;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+<H1>
+
+<Center>
+
+<MARQUEE > <FONT COLOR="BLUE">P</FONT></MARQUEE>
+
+<FONT COLOR ="GREEN">P</FONT>
+<FONT COLOR ="YELLOW">R</FONT>
+<FONT COLOR="RED">O</FONT>
+<FONT COLOR ="SILVER">Y</FONT>
+<FONT COLOR="GREEN">E</FONT>
+<FONT COLOR="BLUE" >C</FONT>
+<FONT COLOR= "PURPLE">T</FONT>
+<FONT COLOR = "LIME">O</FONT>
+
+
+<FONT COLOR="BLUE" >D</FONT>
+<FONT COLOR="RED">E</FONT>
+<FONT COLOR="LIME">L</FONT>
+
+
+<FONT COLOR="AQUA">A</FONT> 
+<FONT COLOR="OLIVER">R</FONT>
+<FONT COLOR="YELLOW">E</FONT>
+<FONT COLOR "FUCHSIA"> A</FONT>
+
+
+<FONT COLOR="BLUE">T</FONT> 
+<FONT COLOR="GRAY" >E</FONT>
+<FONT COLOR="PERU">C</FONT> 
+<FONT COLOR="BLACK">N</FONT>
+<FONT COLOR="RED">I</FONT> 
+<FONT COLOR="LIME">C</FONT>
+<FONT COLOR="TEAL">A</FONT>
+<FONT COLOR="LIME" >I</FONT>
+<FONT COLOR="BLUE">N</FONT> 
+<FONT COLOR="AQUA">F</FONT>
+<FONT COLOR="PURPLE">O</FONT>
+<FONT COLOR="FUCHSIA">R</FONT>
+<FONT COLOR="TEAL">M</FONT>
+<FONT COLOR="GREEN">A</FONT>
+<FONT COLOR="OLIVE">T</FONT>
+<FONT COLOR="YELLOW">I</FONT>
+<FONT COLOR="RED">C</FONT>
+<FONT COLOR="SILVER">A</FONT>
+
+<FONT COLOR="GREEN" > 2 </FONT>
+<FONT COLOR ="YELLOW">0</FONT>
+<FONT COLOR="BLUE">2</FONT>
+<FONT COLOR="GRAY">5</FONT>
+<FONT COLOR= "MAROON">2</FONT>
+<FONT COLOR="PURPLE^>0</FONT>
+<FONT COLOR="LIME">2</FONT>
+
+<MARQUEE><FONT COLOR="RED">6</FONT></MARQUEE>
+</center>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Desplegable con Trimestres</title>
+    <style>
+          #header
+
+
+        .navbar {
+            background-color:GREEN;
+            overflow: hidden;
+
+        }
+        li a {
+            display: block;         
+            padding: 25px;             
+            background-color: GREEN; 
+            color: white;            
+            text-decoration: none;   
+        }
+
+
+        .menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu > li {
+            float: left;
+            position: relative;
+        }
+
+        .menu a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            background-color: GREEN;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: YELLOW;
+            min-width: 160px;
+        }
+
+        .submenu a {
+            padding: 15px 16px;
+            color: white;
+        }
+
+        .submenu a:hover {
+            background-color: YELLOW;
+        }
+
+        .menu li:hover .submenu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>PROYECTO DEL ÁREA TÉCNICA</h1>
+        <p>Ciclo Lectivo 2024-2025</p>
+    </header>
+
+    <nav>
+        <ul class="menu">
+            <li>
+                <a href="#">Diseño Web</a>
+                <ul class="submenu">
+                    <li><a href="file:///D:/JEAN%20MU%C3%91OZ%203RO%20N/DISE%C3%91O%20WEB/investigacion%20hosting.html">1er Trimestre</a></li>
+                    <li><a href="#">2do Trimestre</a></li>
+                    <li><a href="#">3er Trimestre</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Sistemas Operativos y Redes</a>
+                <ul class="submenu">
+                    <li><a href="#">1er Trimestre</a></li>
+                    <li><a href="#">2do Trimestre</a></li>
+                    <li><a href="#">3er Trimestre</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Soporte Técnico</a>
+                <ul class="submenu">
+                    <li><a href="#">1er Trimestre</a></li>
+                    <li><a href="#">2do Trimestre</a></li>
+                    <li><a href="#">3er Trimestre</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Programación y Base de Datos</a>
+                <ul class="submenu">
+                    <li><a href="#">1er Trimestre</a></li>
+                    <li><a href="#">2do Trimestre</a></li>
+                    <li><a href="#">3er Trimestre</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Información del Proyecto</h2>
+        <div class="info-box">
+            <p><strong>Nombre del Alumno:</strong> JEAN MUÑOZ</p>
+            <p><strong>Docente:</strong> Lcda. Tania Vélez</p>
+        </div>
+        
+        <img src="alumno.gif" alt="Un GIF representando el proyecto" width="300" height="200">
+        <p>¡Este es el espacio para la descripción de tu proyecto y los detalles importantes!</p>
+        <p>Puedes añadir más texto, imágenes, o cualquier otro contenido relevante aquí.</p>
+
+        <h2>Nuestras Metas</h2>
+        <p>En este proyecto, nos enfocamos en el aprendizaje práctico y la aplicación de conocimientos en las áreas técnicas. Buscamos desarrollar habilidades clave para el futuro profesional.</p>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024-2025 Proyecto Área Técnica. Todos los derechos reservados.</p>
+        <p>Institución Educativa: [UNIDAD EDUCATIVA NICOLAS INFANTE DIAZ]</p>
+    </footer>
+
+</body>
+</html>
